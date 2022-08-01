@@ -1,6 +1,5 @@
 import UIKit
 import HealthKit
-import WatchKit
 
 class WorkoutsTableViewController: UITableViewController {
 
