@@ -102,6 +102,7 @@ class WorkoutDataStore {
         
         let predicate = NSCompoundPredicate(orPredicateWithSubpredicates: [
             HKQuery.predicateForWorkouts(with: .walking),
+            HKQuery.predicateForWorkouts(with: .hiking),
             HKQuery.predicateForWorkouts(with: .running),
             HKQuery.predicateForWorkouts(with: .cycling),
             HKQuery.predicateForWorkouts(with: .swimming),
