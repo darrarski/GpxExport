@@ -170,10 +170,16 @@ class WorkoutsTableViewController: UITableViewController {
     //3. Show the workout's start date in the label.
     cell.textLabel?.text = dateFormatter.string(from: workout.startDate)
 
-    //4. Show the Calorie burn in the lower label.
+    //4. Show the distance and calories in the detail label.
+    var details = [String]()
+    if let distance = workout.totalDistance?.doubleValue(for: .meterUnit(with: .kilo)) {
+      details.append(String(format: "%.2f km", distance))
+    }
     if let caloriesBurned = workout.totalEnergyBurned?.doubleValue(for: HKUnit.kilocalorie()) {
-      let formattedCalories = String(format: "CaloriesBurned: %.2f", caloriesBurned)
-      cell.detailTextLabel?.text = formattedCalories
+      details.append(String(format: "%.2f kcal", caloriesBurned))
+    }
+    if !details.isEmpty {
+      cell.detailTextLabel?.text = details.joined(separator: " | ")
     } else {
       cell.detailTextLabel?.text = nil
     }
