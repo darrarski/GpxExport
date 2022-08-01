@@ -79,6 +79,7 @@ class WorkoutsTableViewController: UITableViewController {
                 case .cycling: return "Cycle"
                 case .running: return "Run"
                 case .walking: return "Walk"
+                case .hiking: return "Hiking"
                 default: return "Workout"
             }
         }()
